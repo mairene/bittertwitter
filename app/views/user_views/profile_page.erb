@@ -10,6 +10,13 @@
     </tr>
     <tr>
       <td>
+        <form action="/users/<%= @user.id %>" method="get">
+          <input type="submit" value="edit account info">
+        </form>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <form action="/users/<%= @user.id %>" method="post">
           <input type="hidden" value="delete" name="_method">
           <input type="submit" value="delete account">

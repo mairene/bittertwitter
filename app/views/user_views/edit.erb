@@ -1,0 +1,11 @@
+<form action "/users/<%= @user.id %>" method ="post">
+  <input type="hidden" value="put" name="_method">
+  <input type="textarea" value="<%= @user.handle %>" name="handle">
+  <input type="textarea" value="<%= @user.email %>" name="email">
+  <input type="submit" value="update">
+</form>
+<% if @unique_handle %>
+  <div>
+    <h4> That handle is already being used </h4>
+  </div>
+<% end %>
