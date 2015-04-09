@@ -20,8 +20,9 @@ end
 
 #update(edit)
 get '/tweets/:user_handle/edit' do
+  p params
   @user = User.where(handle: params[:user_handle]).first
-  @tweet = Tweet.where(id: params[:])
+  # @tweet = Tweet.where(id: params[:])
   erb :'tweets/edit'
 end
 

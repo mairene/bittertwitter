@@ -4,7 +4,8 @@
       <b><%= @user.handle %></b>  <%= tweet.created_at %>
         <p><%= tweet.message %>
           <form action="/tweets/<%= @user.handle %>/edit" method="get">
-            <input type="submit" name="<%= tweet.id %>" value="Edit this bitter 'tude.">
+            <input type="hidden" name="tweet_id" value="<%= tweet.id %>">
+            <input type="submit" value="Edit this bitter 'tude.">
           </form>
         </p>
     <% end %>
