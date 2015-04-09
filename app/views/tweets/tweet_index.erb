@@ -1,0 +1,13 @@
+<div class="tweet_container">
+  <p>
+    <% @user_tweets.each do |tweet| %>
+      <b><%= @user.handle %></b>  <%= tweet.created_at %>
+        <p><%= tweet.message %></p>
+    <% end %>
+  </p>
+</div>
+<div>
+  <form action="/tweets/:user_handle/new" method="get">
+    <input type="submit" value="Tweet it!">
+  </form>
+</div>

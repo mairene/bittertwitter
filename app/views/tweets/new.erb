@@ -1,0 +1,8 @@
+<div class="tweet_container">
+  <p>Hey <%= @user.handle %> compose a bitter tweet!</p>
+  <form action="/tweets/:user_handle" method="post">
+    <textarea name="message" placeholder="How bitter are you feeling today">
+    </textarea>
+  </form>
+
+</div>
