@@ -2,12 +2,16 @@
   <p>
     <% @user_tweets.each do |tweet| %>
       <b><%= @user.handle %></b>  <%= tweet.created_at %>
-        <p><%= tweet.message %></p>
+        <p><%= tweet.message %>
+          <form action="/tweets/<%= @user.handle %>/edit" method="get">
+            <input type="submit" name="<%= tweet.id %>" value="Edit this bitter 'tude.">
+          </form>
+        </p>
     <% end %>
   </p>
 </div>
 <div>
-  <form action="/tweets/:user_handle/new" method="get">
+  <form action="/tweets/<%= @user.handle %>/new" method="get">
     <input type="submit" value="Tweet it!">
   </form>
 </div>
