@@ -28,5 +28,12 @@ get "/users/new" do
   end
 end
 
+delete "/users/:id" do
+  @id = params[:id].to_i
+  @user = User.where(id: @id).first
+  @user.destroy
+  redirect "/"
+end
+
 
 
