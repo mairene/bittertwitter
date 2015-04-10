@@ -1,0 +1,34 @@
+<div>
+  <table>
+    <tr>
+      <td><%= @user.handle %></td>
+      <td rowspan="10">user tweets<td>
+        <!-- fix this feature when integated with tweets -->
+    </tr>
+    <tr>
+      <td><%= @user.email %></td>
+    </tr>
+    <tr>
+      <td>
+        <form action="/users/<%= @user.id %>" method="get">
+          <input type="submit" value="edit account info">
+        </form>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <form action="/users/<%= @user.id %>" method="post">
+          <input type="hidden" value="delete" name="_method">
+          <input type="submit" value="delete account">
+        </form>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <form action="/" method="get">
+          <input type="submit" value="Logout">
+        </form>
+      </td>
+    </tr>
+  </table>
+</div>
