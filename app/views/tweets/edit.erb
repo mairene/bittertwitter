@@ -1,9 +1,10 @@
 <div>
   <h1>Edit your bitter 'tude!</h1>
-  <form action="tweets/:user_handle" method="post">
+  <form action="/tweets/<%= @user.handle %>" method="post">
     <input type="hidden" name="_method" value="put">
-    <textarea name="message">
+    <textarea name="message" placeholder="<%= @tweet.message %>">
     </textarea>
+    <input type="hidden" name="tweet_id" value="<%= @tweet.id %>">
     <input type="submit" value="Edit that!">
   </form>
 </div>

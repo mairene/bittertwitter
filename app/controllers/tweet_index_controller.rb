@@ -20,13 +20,32 @@ end
 
 #update(edit)
 get '/tweets/:user_handle/edit' do
-  p params
   @user = User.where(handle: params[:user_handle]).first
-  # @tweet = Tweet.where(id: params[:])
+  @tweet = Tweet.where(id: params[:tweet_id]).first
   erb :'tweets/edit'
 end
 
-put 'tweets/:user_handle' do
+put '/tweets/:user_handle' do
+  @user = User.where(handle: params[:user_handle]).first
+  @tweet = Tweet.where(id: params[:tweet_id]).first
+
+  @tweet.update(message: params[:message])
+
+  if @tweet.save
+    p "we are here"
+    redirect "/tweets/#{@user.handle}"
+  else
+    status 402
+  end
 end
 
 #delete
+delete '/tweets/:user_handle' do
+  @user = User.where(handle: params[:user_handle]).first
+  @tweet = Tweet.where(id: params[:tweet_id]).first
+
+  @tweet.destroy
+  redirect "/tweets/#{@user.handle}"
+end
+
+

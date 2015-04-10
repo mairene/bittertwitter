@@ -7,6 +7,12 @@
             <input type="hidden" name="tweet_id" value="<%= tweet.id %>">
             <input type="submit" value="Edit this bitter 'tude.">
           </form>
+          <form action="/tweets/<%= @user.handle %>" method="post">
+            <input type="hidden" name="_method" value="delete">
+
+            <input type="hidden" name="tweet_id" value="<%= tweet.id %>">
+            <input type="submit" value="Delete this bitter 'tude.">
+          </form>
         </p>
     <% end %>
   </p>
