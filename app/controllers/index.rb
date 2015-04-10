@@ -4,3 +4,4 @@ get "/" do
   @not_created = params[:created]
   erb :index
 end
+

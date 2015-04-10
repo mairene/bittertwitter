@@ -1,0 +1,16 @@
+<div>
+  <table>
+    <tr>
+      <td><h1>@<%= @user.handle %></h1></td>
+        <!-- fix this feature when integated with tweets -->
+    </tr>
+      <% @user.tweets.where(user_id: @user.id).each do |tweet| %>
+      <tr>
+        <td style="background:#ccc; color:#fff; border: solid black 1px;">
+        <b><%= @user.handle %></b>  <%= tweet.created_at %>
+        <p><%= tweet.message %></p>
+        </td>
+      </tr>
+      <% end %>
+  </table>
+</div>
