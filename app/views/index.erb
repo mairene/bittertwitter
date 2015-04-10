@@ -1,20 +1,26 @@
 <div>
-<%if @no_user%>
-  <p> <%= @no_user %> </p>
-<%end%>
+  <%if @no_user%>
+    <p> That user does not exist</p>
+  <%end%>
+  <%if @no_password%>
+    <p> That password doesn't match that username</p>
+  <%end%>
+  <%if @not_created%>
+    <p> That email or handle is not unique</p>
+  <%end%>
 </div>
 <div>
-<form action="/user" method="get">
-  <input type="textarea" name="handle" placeholder="enter username">
-  <input type="textarea" name="password" placeholder="enter password">
-  <input type="submit" value="Login">
-</form>
+  <form action="/user" method="get">
+    <input type="textarea" name="handle" placeholder="enter username">
+    <input type="textarea" name="password" placeholder="enter password">
+    <input type="submit" value="Login">
+  </form>
 
-<form action="/users/new" method="get">
-  <h1>New to Bitter?<h1>
-  <input type="textarea" name="new_username" placeholder="handle">
-  <input type="textarea" name="new_password" placeholder="password">
-  <input type="textarea" name="new_email" placeholder="email">
-  <input type="submit" value="Sign up for Bitter!">
+  <form action="/users/new" method="get">
+    <h1>New to Bitter?<h1>
+    <input type="textarea" name="new_username" placeholder="handle">
+    <input type="textarea" name="new_password" placeholder="password">
+    <input type="textarea" name="new_email" placeholder="email">
+    <input type="submit" value="Sign up for Bitter!">
 </form>
 </div>

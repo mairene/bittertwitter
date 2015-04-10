@@ -7,12 +7,10 @@ get "/user" do
     if @user.password == @password
       erb :"user_views/profile_page"
     else
-      # @no_user = "Not a valid username and password"
-      redirect "/"
+      redirect "/?no_password=true"
     end
   else
-    # @no_user = "Not a valid username and password"
-    redirect "/"
+    redirect "/?no_user=true"
   end
 end
 
@@ -25,7 +23,7 @@ get "/users/new" do
   if @user.save
     erb :"user_views/profile_page"
   else
-    redirect "/"
+    redirect "/?created=false"
   end
 end
 
