@@ -14,6 +14,12 @@ get "/user" do
   end
 end
 
+#view/read user public profile
+get '/user/public' do
+  @user = User.where(handle: params[:search_handle]).first
+  erb :"user_views/public_profile_page"
+end
+
 #from index create new user
 get "/users/new" do
   @email = params[:new_email]
