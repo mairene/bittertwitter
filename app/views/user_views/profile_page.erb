@@ -2,7 +2,9 @@
   <table>
     <tr>
       <td><%= @user.handle %></td>
-      <td rowspan="10">user tweets<td>
+      <td rowspan="<%= @user.tweets.length %>">
+        <%= erb :"/tweets/tweet_index", locals: {user: @user} %>
+      <td>
         <!-- fix this feature when integated with tweets -->
     </tr>
     <tr>
@@ -10,7 +12,7 @@
     </tr>
     <tr>
       <td>
-        <form action="/users/<%= @user.id %>" method="get">
+        <form action="/users/<%= @user.id %>/edit" method="get">
           <input type="submit" value="edit account info">
         </form>
       </td>

@@ -34,15 +34,21 @@ get "/users/new" do
 end
 
 #display user's edit page
-get "/users/:id" do
+get "/users/:id/edit" do
   @id = params[:id].to_i
   @user = User.where(id: @id).first
   @unique_handle = params[:unique_handle]
   erb :"user_views/edit"
 end
 
+#display user profile page
+get "/users/:id" do
+  @user = User.where(id: params[:id]).first
+  erb :"user_views/profile_page"
+end
+
 #edit user
-put "/users/:id" do
+put "/users/:id/edit" do
   new_handle = params[:handle]
   new_email = params[:email]
   @id = params[:id]

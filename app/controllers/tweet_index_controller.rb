@@ -12,10 +12,11 @@ get '/tweets/:user_handle/new' do
   erb :'tweets/new'
 end
 
+#create tweet with id of user
 post '/tweets/:user_handle' do
   @user = User.where(handle: params[:user_handle]).first
   @tweet = Tweet.create(message: params[:message], user_id: @user.id )
-  redirect "/tweets/#{@user.handle}"
+  redirect "/users/#{@user.id}"
 end
 
 #update(edit)
@@ -33,7 +34,7 @@ put '/tweets/:user_handle' do
 
   if @tweet.save
     p "we are here"
-    redirect "/tweets/#{@user.handle}"
+    redirect "/users/#{@user.id}"
   else
     status 402
   end
@@ -45,7 +46,7 @@ delete '/tweets/:user_handle' do
   @tweet = Tweet.where(id: params[:tweet_id]).first
 
   @tweet.destroy
-  redirect "/tweets/#{@user.handle}"
+  redirect "/users/#{@user.id}"
 end
 
 
