@@ -1,0 +1,24 @@
+<div class="tweet_container">
+  <p>
+    <% @user_tweets.each do |tweet| %>
+      <b><%= @user.handle %></b>  <%= tweet.created_at %>
+        <p><%= tweet.message %>
+          <form action="/tweets/<%= @user.handle %>/edit" method="get">
+            <input type="hidden" name="tweet_id" value="<%= tweet.id %>">
+            <input type="submit" value="Edit this bitter 'tude.">
+          </form>
+          <form action="/tweets/<%= @user.handle %>" method="post">
+            <input type="hidden" name="_method" value="delete">
+
+            <input type="hidden" name="tweet_id" value="<%= tweet.id %>">
+            <input type="submit" value="Delete this bitter 'tude.">
+          </form>
+        </p>
+    <% end %>
+  </p>
+</div>
+<div>
+  <form action="/tweets/<%= @user.handle %>/new" method="get">
+    <input type="submit" value="Tweet it!">
+  </form>
+</div>
